@@ -1,8 +1,6 @@
 SELECT *
 FROM beatdowns
 WHERE
-  bd_date < '2023-02-04'
-  OR
   bd_date > CURRENT_DATE()
   OR
   fng_count < 0
