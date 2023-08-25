@@ -2,6 +2,7 @@ UPDATE aos
 SET backblast = 1
 WHERE (
     ao LIKE 'ao_%'
+    OR ao LIKE 'csaup_%'
     OR channel_id IN (
       'C04KMV5DP32', -- black_ops
       'C04KMV5DP32', -- dr
