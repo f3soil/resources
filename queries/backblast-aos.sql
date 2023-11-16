@@ -3,9 +3,9 @@ SET backblast = 1
 WHERE (
     ao LIKE 'ao_%'
     OR ao LIKE 'csaup_%'
+    OR ao LIKE 'csaups_%'
+    OR ao LIKE 'black_ops%'
     OR channel_id IN (
-      'C04KMV5DP32', -- black_ops
-      'C05RPN7QLR2', -- csaups
       'C04KMV5DP32', -- dr
       'C04HUNJC05B', -- q-source
       'C04HR3BH9K8', -- rucking
