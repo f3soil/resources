@@ -51,9 +51,3 @@ FROM attendance
          JOIN user_match ON (attendance.user_id = user_match.user_id)
 GROUP BY user_match.user_name
 ORDER BY posts DESC
-
-SELECT *
-FROM f3stlcity.attendance_view
-WHERE PAX = "Cousin Eddie"
-  AND MONTH(Date) = 1 AND YEAR(Date) = 2023
-ORDER BY Date
