@@ -1,0 +1,11 @@
+- Website: https://f3soil.com
+- Facebook: 
+- Slack
+  - What is :hc:?
+  - Consistency before Intensity
+  - Five Core Principles
+  - Motto
+  - Mission
+  - @QSignups to see the schedule and locations
+  - Allow Slack notifications
+  - Taming Slack notifications
