@@ -1,23 +1,4 @@
 WITH
-    attendance AS (
-        SELECT
-            user_id,
-            COUNT(*) AS posts
-        FROM f3stlcity.aos AS aos
-        JOIN f3stlcity.bd_attendance AS bd ON bd.ao_id = aos.channel_id
-        WHERE ao IN (
-            'ao_outer_rim_moody_park',
-            'ao_black_forest_bolm_schuhkraft_park',
-            'ao_mine_drost_park',
-            'ao_stomping_grounds_bicentennial_park',
-            'ao_the_station_ofallon_community_park',
-            'ao_the_store_joe_glik_park',
-            'ao_the_zoo_tri-township_park_troy',
-            'blackops'
-        )
-        AND MONTH(bd.Date) = 1 AND YEAR(bd.Date) = 2023
-        GROUP BY user_id
-    ),
     user_match AS (
         SELECT
             city.user_id,
@@ -45,9 +26,40 @@ WITH
                 "QSignups",
                 "Slackbot"
             )
+    ),
+    city AS (
+        SELECT user_name
+        FROM f3stlcity.aos AS aos
+        JOIN f3stlcity.bd_attendance AS bd ON bd.ao_id = aos.channel_id
+        JOIN user_match ON (bd.user_id = user_match.user_id)
+        WHERE ao IN (
+                     'ao_outer_rim_moody_park',
+                     'ao_black_forest_bolm_schuhkraft_park',
+                     'ao_mine_drost_park',
+                     'ao_stomping_grounds_bicentennial_park',
+                     'ao_the_station_ofallon_community_park',
+                     'ao_the_store_joe_glik_park',
+                     'ao_the_zoo_tri-township_park_troy',
+                     'blackops'
+            )
+          AND MONTH(bd.Date) = 1 AND YEAR(bd.Date) = 2023
+    ),
+    soil AS (
+        SELECT PAX AS user_name
+        FROM attendance_view
+        WHERE YEAR(Date) = 2023
+    ),
+    minimum AS (
+        SELECT user_name, COUNT(*) AS posts
+        FROM (
+                 SELECT * FROM city
+                 UNION ALL
+                 SELECT * FROM soil
+             ) AS combined
+        GROUP BY user_name
+        HAVING posts >= 52*5
     )
-SELECT user_match.user_name, attendance.posts
-FROM attendance
-         JOIN user_match ON (attendance.user_id = user_match.user_id)
-GROUP BY user_match.user_name
-ORDER BY posts DESC
+SELECT CONCAT('@', user_name)
+FROM minimum
+GROUP BY user_name
+ORDER BY user_name
