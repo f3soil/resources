@@ -20,7 +20,7 @@ with site_qs (ao, user_name) as (select 'so_black_ao_outer_rim', 'Photo Op'
                                  union all
                                  select 'so_purple_ao_pitch', 'O\'Donk'
                                  union all
-                                 select 'so_purple_ao_prost', 'Julie the Cat'
+                                 select 'so_purple_ao_prost', 'NIPS'
                                  union all
                                  select 'so_purple_rucks', 'Fuzzy')
 select aos.ao,
@@ -55,7 +55,7 @@ with site_qs (ao, user_name) as (select 'so_black_ao_outer_rim', 'Photo Op'
                                  union all
                                  select 'so_purple_ao_pitch', 'O\'Donk'
                                  union all
-                                 select 'so_purple_ao_prost', 'Julie the Cat'
+                                 select 'so_purple_ao_prost', 'NIPS'
                                  union all
                                  select 'so_purple_rucks', 'Fuzzy')
 update aos
