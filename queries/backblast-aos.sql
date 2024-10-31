@@ -1,6 +1,6 @@
 UPDATE aos
-SET   backblast  = IF(ao LIKE '%mumblechat%' OR ao LIKE '%slt' OR ao IN ('paxminer_logs', 'sector_discussion', 'slt-messages') OR archived, 0, 1)
-WHERE backblast != IF(ao LIKE '%mumblechat%' OR ao LIKE '%slt' OR ao IN ('paxminer_logs', 'sector_discussion', 'slt-messages') OR archived, 0, 1)
+SET   backblast  = IF(ao LIKE '%mumblechat%' OR ao LIKE '%slt' OR ao IN ('achievements', 'paxminer_logs', 'sector_discussion', 'slackblast_practice', 'slt-messages') OR archived, 0, 1)
+WHERE backblast != IF(ao LIKE '%mumblechat%' OR ao LIKE '%slt' OR ao IN ('achievements', 'paxminer_logs', 'sector_discussion', 'slackblast_practice', 'slt-messages') OR archived, 0, 1)
 ;
 
 UPDATE aos
