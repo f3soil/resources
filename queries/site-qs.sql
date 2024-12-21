@@ -1,6 +1,6 @@
 with site_qs (ao, user_name) as (select 'so_black_ao_outer_rim', 'Photo Op'
                                  union all
-                                 select 'so_black_ao_station', 'Roughage'
+                                 select 'so_black_ao_station', 'All Highway'
                                  union all
                                  select 'so_black_ao_stomping_grounds', 'Mustang Sally'
                                  union all
@@ -37,7 +37,7 @@ order by aos.ao;
 
 with site_qs (ao, user_name) as (select 'so_black_ao_outer_rim', 'Photo Op'
                                  union all
-                                 select 'so_black_ao_station', 'Roughage'
+                                 select 'so_black_ao_station', 'All Highway'
                                  union all
                                  select 'so_black_ao_stomping_grounds', 'Mustang Sally'
                                  union all
